@@ -14,6 +14,8 @@ var cursors;
 
 function create() {
     
+    game.world.setBounds(-50,0,900, 600);
+    
     ball =  game.add.group();
     players = game.add.group();
 
