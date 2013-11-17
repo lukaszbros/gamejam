@@ -16,4 +16,4 @@ $(document).ready(function() {
 	} else {
 	    console.log('Error! DeviceOrientation not supported');
 	}
-}
+});
