@@ -30,8 +30,14 @@ function CheckIfPlayersConnected()
     if (playerAConnected && playerBConnected)
     {
         ShowLoadingGame();
-        setTimeout(function(){ showGame(); }, 3000);
+        setTimeout(function(){ DipslayGame(); }, 3000);
     }
+}
+
+function DipslayGame()
+{
+    $("#mainPage").hide();
+    showGame();
 }
 
 socket.on('player_connected', function(data){
