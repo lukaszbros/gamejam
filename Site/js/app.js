@@ -14,6 +14,21 @@ function PlayerAReady()
     CheckIfPlayersConnected();
 }
 
+function PlayerADisconnected()
+{
+    $("#waitForPlayerA").show();
+    $("#playerAReady").hide();
+    playerAConnected = false;
+}
+
+function PlayerBDisconnected()
+{
+    $("#waitForPlayerB").show();
+    $("#playerBReady").hide();
+    playerBConnected = false;
+    CheckIfPlayersConnected();
+}
+
 function PlayerBReady(){
     $("#waitForPlayerB").hide();
     $("#playerBReady").show();
@@ -28,20 +43,47 @@ function ShowLoadingGame()
 }
 
 
+function HideLoadingGame()
+{
+    $("#ChoosePlayer").show();
+    $("#LoadingBar").hide();
+}
+
+
 function CheckIfPlayersConnected()
 {
     if (playerAConnected && playerBConnected)
     {
         ShowLoadingGame();
         setTimeout(function(){ DipslayGame(); }, 3000);
+    } else if (!playerAConnected || !playerBConnected){
+        $("#mainPage").show();
+        $("#phaser-example").hide();
+        HideLoadingGame();
+        game = null;
     }
 }
+
 
 function DipslayGame()
 {
     $("#mainPage").hide();
+    $("#phaser-example").show();
     showGame();
 }
+socket.on('player_disconnected', function(data){
+    if (data.playerId == playerAId) {
+        console.log("Player A is disconnected")
+        playerAId = 0;
+        PlayerADisconnected();
+    }
+
+    if (data.playerId == playerBId) {
+        console.log("Player B is disconnected")
+        playerBId = 0;
+        PlayerBDisconnected();
+    }
+});
 
 socket.on('player_connected', function(data){
    	console.log('player_connected');
