@@ -22,16 +22,19 @@ var player1Score;
 var player2Score;
 var text;
 var background;
+var speedFactor;
 
 var playerAMove;
 
 var playerBMove;
 
 function create() {
+    
+    speedFactor = 1;
 
     background = game.add.sprite(0, 0, 'background');
     
-    text = game.add.text(game.world.centerX - 28, 30, "0 : 0", {
+    text = game.add.text(game.world.centerX - 28 - 16, 30, "00 : 00", {
         font: "30px Arial",
         fill: "#ff0044",
         align: "center"
@@ -47,14 +50,11 @@ function create() {
 
     for (var i = 0; i < 1; i++)
     {
-        ball = ballGroup.create(300, 300, 'ball')
+        ball = ballGroup.create(300, 300, 'ball');
         //ball.name = 'ball' + s;
         ball.body.collideWorldBounds = true;
         ball.body.bounce.setTo(1,1);
         ball.body.velocity.setTo(200, 200);
-        ball.allowRotation = true;
-        ball.anchor.x = 25;
-        ball.anchor.y = 25;
     }
     
     player1 = players.create(-50, 160, 'pong');
@@ -76,9 +76,7 @@ function update() {
     
     player2.body.velocity.y = 0;
     player1.body.velocity.y = 0;
-    
-    //ball.body.rotation += 1;
-    
+
     if (cursors.up.isDown || playerAMove == 1)
     {
          player1.body.y -= 5
@@ -141,10 +139,10 @@ function reset(loser)
     var direction = Math.random() - .5;
     if (direction > 0)
     {
-        ball.body.velocity.setTo(  200, 200); 
+        ball.body.velocity.setTo(  200  , 200 ); 
     }else 
     {
-        ball.body.velocity.setTo( - 200, 200); 
+        ball.body.velocity.setTo( - 200  , 200 ); 
     }
     
     
@@ -154,9 +152,33 @@ function reset(loser)
         player1Score++;
     }
     
-    text.setText(player1Score + " : " + player2Score);
+    var textScore;
     
-    console.log("player " + loser + " lose"); 
+    if(player1Score < 10)
+    {
+    textScore = "0" + player1Score + " : ";
+    }else
+    {
+    textScore = player1Score + " : ";   
+    }
+    
+    if(player2Score < 10)
+    {
+    textScore += "0" + player2Score;
+    }else
+    {
+    textScore += player2Score;   
+    }
+    
+    text.setText(textScore);
+     
+}
+
+function resetScore()
+{
+    player1Score = 0;
+    player2Score = 0;
+    text.setText("00 : 00");
 }
 
 function render() {
