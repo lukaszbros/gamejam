@@ -1,2 +1,2 @@
-var socket = io.connect('http://localhost:8090');
+var socket = io.connect('http://racinglife.net:8090');
 socket.emit('player_connected',{player:'A'});

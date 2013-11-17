@@ -9,30 +9,22 @@
     <title>Pong </title>
     <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script src="js/app.js"></script>
 <body style="line-height: 100%;">
 
 <script type="text/javascript" language="javascript">
 
     $(document).ready(function() {
-
-        function PlayerAReady()
-        {
-            $("#waitForPlayerA").hide();
-            $("#playerAReady").show();
-        }
-
-        function PlayerBReady(){
-            $("#waitForPlayerB").hide();
-            $("#playerBReady").show();
-        }
         $( "#qrcodeA" ).click(function() {
-            PlayerAReady();
+            window.open('playerA.html', 'window name', 'window settings');
+            return false;
         });
 
         $( "#qrcodeB" ).click(function() {
-            PlayerBReady();
+            window.open('playerB.html', 'window name', 'window settings');
+            return false;
         });
-
     });
 </script>
     <div class="container"  style="padding-top: 200px;">
