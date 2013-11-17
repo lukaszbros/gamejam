@@ -22,8 +22,7 @@ io.sockets.on('connection', function(client) {
 	
 	// Broadcast movement of oponent
 	client.on('player_move', function(data){
-		data.player = players[client.id]
-		client.broadcast.emit("player_move", data);
+		client.broadcast.emit("player_move", {player: players[client.id], data: data});
 	});
 	
 	// Broadcast disconnect of oponent
