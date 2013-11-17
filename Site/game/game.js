@@ -9,7 +9,10 @@ var game;
 
 function showGame()
 {
-    game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+
+    if (typeof game === "undefined") {
+        game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+    }
 }
 
 var ballGroup;
