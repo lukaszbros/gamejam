@@ -12,7 +12,7 @@ io.sockets.on('connection', function(client) {
 	console.log('Client connected...' + client.id);
 			
 	client.on('player_connected', function(data) {
-		console.log('Player joined player: ' + data.player + 'client: '  + client.id);
+		console.log('Player joined player: ' + data.player + ', client: '  + client.id);
 		players.push(client.id,data.player);
 		
 		// Broadcast new oponent to connected
@@ -29,10 +29,8 @@ io.sockets.on('connection', function(client) {
 	
 	// Broadcast disconnect of oponent
 	client.on('disconnect', function() {
-		console.log(oponents.length);
 		client.broadcast.emit("oponent_disconnected", {player: players[client.id]});
 		players.pop(client.id);
 		console.log('Client disconnected...');
-		console.log(oponents.length);
 	});
 });
