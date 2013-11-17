@@ -3,6 +3,7 @@ function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('pong', 'assets/pong.png');
     game.load.image('pong2', 'assets/pong2.png');
+    game.load.image('background', 'assets/background.png');
 }
 var game;
 
@@ -20,12 +21,15 @@ var cursors;
 var player1Score;
 var player2Score;
 var text;
+var background;
 
 var playerAMove;
 
 var playerBMove;
 
 function create() {
+
+    background = game.add.sprite(0, 0, 'background');
     
     text = game.add.text(game.world.centerX, 30, "0 : 0", {
         font: "30px Arial",
