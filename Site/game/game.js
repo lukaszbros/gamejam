@@ -21,9 +21,9 @@ var player1Score;
 var player2Score;
 var text;
 
-var player1direction;
+var playerAMove;
 
-var player2direction;
+var playerBMove;
 
 function create() {
     
@@ -63,22 +63,22 @@ function create() {
 
 function update() {
     
-    if (cursors.up.isDown || player1direction == 1)
+    if (cursors.up.isDown || playerAMove == 1)
     {
          player1.body.y -= 5
     }
     
-    if (cursors.down.isDown || player1direction == -1)
+    if (cursors.down.isDown || playerAMove == -1)
     {
          player1.body.y += 5
     }
     
-    if (cursors.left.isDown || player2direction == 1)
+    if (cursors.left.isDown || playerBMove == 1)
     {
          player2.body.y -= 5
     }
     
-    if (cursors.right.isDown || player2direction == -1)
+    if (cursors.right.isDown || playerBMove == -1)
     {
          player2.body.y += 5
     }
