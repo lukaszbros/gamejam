@@ -27,18 +27,20 @@ function ShowLoadingGame()
     $("#LoadingBar").show();
 }
 
-function ShowGame()
-{
-    console.log('showgame');
-}
 
 function CheckIfPlayersConnected()
 {
     if (playerAConnected && playerBConnected)
     {
         ShowLoadingGame();
-        setTimeout(function(){ ShowGame(); }, 3000);
+        setTimeout(function(){ DipslayGame(); }, 3000);
     }
+}
+
+function DipslayGame()
+{
+    $("#mainPage").hide();
+    showGame();
 }
 
 socket.on('player_connected', function(data){

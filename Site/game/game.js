@@ -3,10 +3,11 @@ function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('pong', 'assets/pong.png');
 }
+var game;
 
 function showGame()
 {
-   var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render }); 
+    game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 }
 
 var ballGroup;
