@@ -13,7 +13,7 @@
     <script src="js/app.js"></script>
     <script src="js/phaser.js"></script>
     <script src="game/game.js"></script>
-<body style="line-height: 100%;margin: 0 auto;">
+<body style="line-height: 100%;margin: 0 auto;background-image: url('assets/img/background.jpg')">
 
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
@@ -33,35 +33,46 @@
 
 </div>
     <div class="container"  style="padding-top: 200px;" id="mainPage">
+
         <div class="span2 offset2 text-center">
             <div id="waitForPlayerA">
                 <img src="assets/img/QrcodePlayerA.png" id="qrcodeA">
-                Player A
+                <div style="color: red;font-size: 2em;margin-top:10px;">
+                    <img src="assets/img/labels/PlayerA.png">
+                </div>
             </div>
             <div id="playerAReady" style="display: none;">
                 <img src="assets/img/PlayerA.png">
-                Player A ready
+                <div style="color: red;font-size: 2em;margin-top:10px;">
+                    <img src="assets/img/labels/PlayerAReady.png">
+                </div>
             </div>
         </div>
         <div class="span3 text-center">
-            <div id="ChoosePlayer">
-                Choose player
+            <div id="ChoosePlayer"  style="color: white;font-size: 2em;padding-top: 50px;">
+                <img src="assets/img/labels/ChoosePlayer.png">
             </div>
 
-            <div id="LoadingBar"  style="display: none" >
+            <div id="LoadingBar"  style="display: none;padding-top: 40px;" >
                 <img src="assets/img/Loading.GIF">
-                <div>Creating the game</div>
+                <div style="color: white;font-size: 2em;">
+                    <img src="assets/img/labels/Initialization.png">
+                </div>
             </div>
 
         </div>
         <div class="span2 text-center">
             <div id="waitForPlayerB">
                 <img src="assets/img/QrcodePlayerB.png" id="qrcodeB">
-                Player B
+                <div style="color: blue;font-size: 2em;margin-top:10px;">
+                    <img src="assets/img/labels/PlayerB.png">
+                </div>
             </div>
             <div id="playerBReady" style="display: none;">
                 <img src="assets/img/PlayerB.png">
-                Player B ready
+                <div style="color: blue;font-size: 2em;margin-top:10px;">
+                    <img src="assets/img/labels/PlayerBReady.png">
+                </div>
             </div>
         </div>
     </div>

@@ -60,7 +60,7 @@ function CheckIfPlayersConnected()
         $("#mainPage").show();
         $("#phaser-example").hide();
         HideLoadingGame();
-        game = null;
+        //game = null;
     }
 }
 
@@ -73,21 +73,21 @@ function DipslayGame()
 }
 socket.on('player_disconnected', function(data){
     if (data.playerId == playerAId) {
-        console.log("Player A is disconnected")
+       // console.log("Player A is disconnected")
         playerAId = 0;
         PlayerADisconnected();
     }
 
     if (data.playerId == playerBId) {
-        console.log("Player B is disconnected")
+        //console.log("Player B is disconnected")
         playerBId = 0;
         PlayerBDisconnected();
     }
 });
 
 socket.on('player_connected', function(data){
-   	console.log('player_connected');
-    console.log(data);
+   	//console.log('player_connected');
+    //console.log(data);
 
     if (data.player == "A") {
         console.log("Player A is ready")
@@ -104,25 +104,25 @@ socket.on('player_connected', function(data){
 
 socket.on('player_move', function(data){
 	if (data.playerId == playerAId) {
-		if (data.move.b > 50) {
+		if (data.move.b > 40) {
 			playerAMove = 2;
-		} else if (data.move.b > 20) {
+		} else if (data.move.b > 10) {
 			playerAMove = 1;
-		} else if (data.move.b < -40) {
+		} else if (data.move.b < -30) {
 			playerAMove = -2;
-		} else if (data.move.b < -20) {
+		} else if (data.move.b < -10) {
 			playerAMove = -1;
 		} else {
 			playerAMove = 0;
 		}		
 	} else {
-		if (data.move.b > 50) {
+		if (data.move.b > 40) {
 			playerBMove = 2;
-		} else if (data.move.b > 20) {
+		} else if (data.move.b > 10) {
 			playerBMove = 1;
-		} else if (data.move.b < -40) {
+		} else if (data.move.b < -30) {
 			playerBMove = -2;
-		} else if (data.move.b < -20) {
+		} else if (data.move.b < -10) {
 			playerBMove = -1;
 		} else {
 			playerBMove = 0;
