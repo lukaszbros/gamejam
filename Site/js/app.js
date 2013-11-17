@@ -24,17 +24,13 @@ function ShowLoadingGame()
     $("#LoadingBar").show();
 }
 
-function ShowGame()
-{
-    console.log('showgame');
-}
 
 function CheckIfPlayersConnected()
 {
     if (playerAConnected && playerBConnected)
     {
         ShowLoadingGame();
-        setTimeout(function(){ ShowGame(); }, 3000);
+        setTimeout(function(){ showGame(); }, 3000);
     }
 }
 
