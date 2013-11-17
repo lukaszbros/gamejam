@@ -61,9 +61,13 @@ function create() {
     player1.body.collideWorldBounds = true;
     player1.body.bounce.setTo(1, 1);
     
+    player1.body.immovable = true;
+    
     player2 = players.create(800 - 20, 160, 'pong2');
     player2.body.collideWorldBounds = true;
     player2.body.bounce.setTo(1, 1);
+    
+    player2.body.immovable = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -73,6 +77,7 @@ function update() {
     player2.body.velocity.y = 0;
     player1.body.velocity.y = 0;
     
+    //ball.body.rotation += 1;
     
     if (cursors.up.isDown || playerAMove == 1)
     {
