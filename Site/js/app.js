@@ -62,6 +62,7 @@ socket.on('player_connected', function(data){
 
 socket.on('player_move', function(data){
 	if (data.playerId == playerAId) {
+        console.log("Player A, b vaue : " + data.b);
 		if (data.b > 20) {
 			playerAMove = 1;
 		} else if (data.b < 20) {
