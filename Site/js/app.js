@@ -62,18 +62,18 @@ socket.on('player_connected', function(data){
 
 socket.on('player_move', function(data){
 	if (data.playerId == playerAId) {
-		if (data.b > 20) {
+		if (data.move.b > 20) {
 			playerAMove = 1;
-		} else if (data.b < 20) {
+		} else if (data.move.b < 20) {
 			playerAMove = -1;
 		} else {
 			playerAMove = 0;
 		}
 		console.log('playerA ' + playerAMove);
 	} else {
-		if (data.b > 20) {
+		if (data.move.b > 20) {
 			playerBMove = 1;
-		} else if (data.b < 20) {
+		} else if (data.move.b < 20) {
 			playerBMove = -1;
 		} else {
 			playerBMove = 0;
