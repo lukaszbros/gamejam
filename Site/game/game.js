@@ -15,6 +15,13 @@ function showGame()
     }
 }
 
+function ResetScore()
+{
+    if (typeof game === "undefined") {
+        game.resetScore();
+    }
+}
+
 var ballGroup;
 var ball;
 var player1;

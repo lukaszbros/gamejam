@@ -49,7 +49,6 @@ function HideLoadingGame()
     $("#LoadingBar").hide();
 }
 
-
 function CheckIfPlayersConnected()
 {
     if (playerAConnected && playerBConnected)
@@ -60,9 +59,7 @@ function CheckIfPlayersConnected()
         $("#mainPage").show();
         $("#phaser-example").hide();
         HideLoadingGame();
-        if (typeof game === "undefined") {
-            game.resetScore();
-        }
+        ResetScore();
         //game = null;
     }
 }
