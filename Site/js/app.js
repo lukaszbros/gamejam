@@ -27,5 +27,5 @@ socket.on('player_connected', function(data){
 });
 
 socket.on('player_move', function(data){
-	console.log(data);
+	console.log(data.player);
 })
