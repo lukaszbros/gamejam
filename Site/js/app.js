@@ -69,7 +69,7 @@ socket.on('player_move', function(data){
 		} else {
 			playerAMove = 0;
 		}
-		console.log('playerA ' + playerBMove);
+		console.log('playerA ' + playerAMove);
 	} else {
 		if (data.b > 20) {
 			playerBMove = 1;
