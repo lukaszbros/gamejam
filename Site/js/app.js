@@ -25,3 +25,7 @@ socket.on('player_connected', function(data){
         PlayerBReady();
     }
 });
+
+socket.on('player_move', function(data){
+	console.log(data);
+})

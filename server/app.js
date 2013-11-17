@@ -22,9 +22,6 @@ io.sockets.on('connection', function(client) {
 	
 	// Broadcast movement of oponent
 	client.on('player_move', function(data){
-		console.log(data.alpha);
-		console.log(data.beta);
-		console.log(data.gamma);
 		data.player = players[client.id]
 		client.broadcast.emit("player_move", data);
 	});
