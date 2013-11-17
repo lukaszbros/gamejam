@@ -108,10 +108,10 @@ socket.on('player_move', function(data){
 			playerAMove = 2;
 		} else if (data.move.b > 20) {
 			playerAMove = 1;
-		} else if (data.move.b < -20) {
-			playerAMove = -1;
 		} else if (data.move.b < -40) {
 			playerAMove = -2;
+		} else if (data.move.b < -20) {
+			playerAMove = -1;
 		} else {
 			playerAMove = 0;
 		}		
@@ -120,10 +120,10 @@ socket.on('player_move', function(data){
 			playerBMove = 2;
 		} else if (data.move.b > 20) {
 			playerBMove = 1;
-		} else if (data.move.b < -20) {
-			playerBMove = -1;
 		} else if (data.move.b < -40) {
 			playerBMove = -2;
+		} else if (data.move.b < -20) {
+			playerBMove = -1;
 		} else {
 			playerBMove = 0;
 		}
