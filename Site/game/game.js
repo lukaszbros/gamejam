@@ -3,6 +3,7 @@ function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('pong', 'assets/pong.png');
     game.load.image('pong2', 'assets/pong2.png');
+    game.load.image('background', 'assets/background.png');
 }
 var game;
 
@@ -20,6 +21,7 @@ var cursors;
 var player1Score;
 var player2Score;
 var text;
+var background;
 
 var playerAMove;
 
@@ -32,6 +34,8 @@ function create() {
         fill: "#ff0044",
         align: "center"
     });
+    
+    background = game.add.sprite(0, 0, 'background');
     
     player1Score = 0;
     player2Score = 0;
