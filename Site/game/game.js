@@ -67,6 +67,10 @@ function create() {
 
 function update() {
     
+    player2.body.velocity.y = 0;
+    player1.body.velocity.y = 0;
+    
+    
     if (cursors.up.isDown || playerAMove == 1)
     {
          player1.body.y -= 5
@@ -87,10 +91,8 @@ function update() {
          player2.body.y += 5
     }
     
-    
-    
     game.physics.collide(ballGroup, players);
-    
+
     
     if(ball.body.x < -40)
     {
