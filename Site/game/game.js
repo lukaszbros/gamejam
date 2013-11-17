@@ -28,14 +28,14 @@ var playerAMove;
 var playerBMove;
 
 function create() {
+
+    background = game.add.sprite(0, 0, 'background');
     
     text = game.add.text(game.world.centerX, 30, "0 : 0", {
         font: "30px Arial",
         fill: "#ff0044",
         align: "center"
     });
-    
-    background = game.add.sprite(0, 0, 'background');
     
     player1Score = 0;
     player2Score = 0;
