@@ -60,7 +60,7 @@ function CheckIfPlayersConnected()
         $("#mainPage").show();
         $("#phaser-example").hide();
         HideLoadingGame();
-        game = null;
+        //game = null;
     }
 }
 
@@ -73,21 +73,21 @@ function DipslayGame()
 }
 socket.on('player_disconnected', function(data){
     if (data.playerId == playerAId) {
-        console.log("Player A is disconnected")
+       // console.log("Player A is disconnected")
         playerAId = 0;
         PlayerADisconnected();
     }
 
     if (data.playerId == playerBId) {
-        console.log("Player B is disconnected")
+        //console.log("Player B is disconnected")
         playerBId = 0;
         PlayerBDisconnected();
     }
 });
 
 socket.on('player_connected', function(data){
-   	console.log('player_connected');
-    console.log(data);
+   	//console.log('player_connected');
+    //console.log(data);
 
     if (data.player == "A") {
         console.log("Player A is ready")
