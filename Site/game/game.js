@@ -1,9 +1,12 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
-
 function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('pong', 'assets/pong.png');
+}
+
+function showGame()
+{
+   var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render }); 
 }
 
 var ballGroup;
@@ -15,6 +18,10 @@ var cursors;
 var player1Score;
 var player2Score;
 var text;
+
+var player1direction;
+
+var player2direction;
 
 function create() {
     
@@ -37,7 +44,7 @@ function create() {
         ball = ballGroup.create(300, 300, 'ball')
         //ball.name = 'ball' + s;
         ball.body.collideWorldBounds = true;
-        ball.body.bounce.setTo(1, 1);
+        ball.body.bounce.setTo(1,1);
         ball.body.velocity.setTo(200, 200);
     }
     
@@ -54,22 +61,22 @@ function create() {
 
 function update() {
     
-    if (cursors.up.isDown)
+    if (cursors.up.isDown || player1direction == 1)
     {
          player1.body.y -= 5
     }
     
-    if (cursors.down.isDown)
+    if (cursors.down.isDown || player1direction == -1)
     {
          player1.body.y += 5
     }
     
-    if (cursors.left.isDown)
+    if (cursors.left.isDown || player2direction == 1)
     {
          player2.body.y -= 5
     }
     
-    if (cursors.right.isDown)
+    if (cursors.right.isDown || player2direction == -1)
     {
          player2.body.y += 5
     }

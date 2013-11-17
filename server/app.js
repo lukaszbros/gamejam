@@ -4,7 +4,6 @@ var app = express();
 http = require('http');
 server = http.createServer(app);
 var io = socket.listen(server);
-var players = new Array();
 
 server.listen(8090);
 
@@ -13,22 +12,20 @@ io.sockets.on('connection', function(client) {
 			
 	client.on('player_connected', function(data) {
 		console.log('Player joined player: ' + data.player + ', client: '  + client.id);
-		players.push(client.id,data.player);
 		
 		// Broadcast new oponent to connected
-		client.broadcast.emit("player_connected", {player: data.player});
+		client.broadcast.emit("player_connected", {player: data.player, playerId: client.id});
 		console.log('Player joined');
 	});
 	
 	// Broadcast movement of oponent
 	client.on('player_move', function(data){
-		client.broadcast.emit("player_move", {player: players[client.id], data: data});
+		client.broadcast.emit("player_move", {playerId: client.id, move: data});
 	});
 	
 	// Broadcast disconnect of oponent
 	client.on('disconnect', function() {
-		client.broadcast.emit("oponent_disconnected", {player: players[client.id]});
-		players.pop(client.id);
+		client.broadcast.emit("oponent_disconnected", {playerId: client.id});
 		console.log('Client disconnected...');
 	});
 });
