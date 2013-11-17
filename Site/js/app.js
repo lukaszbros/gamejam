@@ -1,14 +1,41 @@
 var socket = io.connect('http://racinglife.net:8090');
+var playerAConnected;
+var playerBConnected;
+
 
 function PlayerAReady()
 {
     $("#waitForPlayerA").hide();
     $("#playerAReady").show();
+    playerAConnected = true;
+    CheckIfPlayersConnected();
 }
 
 function PlayerBReady(){
     $("#waitForPlayerB").hide();
     $("#playerBReady").show();
+    playerBConnected = true;
+    CheckIfPlayersConnected();
+}
+
+function ShowLoadingGame()
+{
+    $("#ChoosePlayer").hide();
+    $("#LoadingBar").show();
+}
+
+function ShowGame()
+{
+    console.log('showgame');
+}
+
+function CheckIfPlayersConnected()
+{
+    if (playerAConnected && playerBConnected)
+    {
+        ShowLoadingGame();
+        setTimeout(function(){ ShowGame(); }, 3000);
+    }
 }
 
 socket.on('player_connected', function(data){
