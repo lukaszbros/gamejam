@@ -31,7 +31,7 @@ function create() {
 
     background = game.add.sprite(0, 0, 'background');
     
-    text = game.add.text(game.world.centerX, 30, "0 : 0", {
+    text = game.add.text(game.world.centerX - 28, 30, "0 : 0", {
         font: "30px Arial",
         fill: "#ff0044",
         align: "center"
@@ -52,15 +52,22 @@ function create() {
         ball.body.collideWorldBounds = true;
         ball.body.bounce.setTo(1,1);
         ball.body.velocity.setTo(200, 200);
+        ball.allowRotation = true;
+        ball.anchor.x = 25;
+        ball.anchor.y = 25;
     }
     
     player1 = players.create(-50, 160, 'pong');
     player1.body.collideWorldBounds = true;
     player1.body.bounce.setTo(1, 1);
     
+    player1.body.immovable = true;
+    
     player2 = players.create(800 - 20, 160, 'pong2');
     player2.body.collideWorldBounds = true;
     player2.body.bounce.setTo(1, 1);
+    
+    player2.body.immovable = true;
     
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -70,6 +77,7 @@ function update() {
     player2.body.velocity.y = 0;
     player1.body.velocity.y = 0;
     
+    //ball.body.rotation += 1;
     
     if (cursors.up.isDown || playerAMove == 1)
     {
@@ -91,6 +99,26 @@ function update() {
          player2.body.y += 5
     }
     
+    if (cursors.up.isDown || playerAMove == 2)
+    {
+         player1.body.y -= 10
+    }
+    
+    if (cursors.down.isDown || playerAMove == -2)
+    {
+         player1.body.y += 10
+    }
+    
+    if (cursors.left.isDown || playerBMove == 2)
+    {
+         player2.body.y -= 10
+    }
+    
+    if (cursors.right.isDown || playerBMove == -2)
+    {
+         player2.body.y += 10
+    }
+    
     game.physics.collide(ballGroup, players);
 
     
@@ -110,7 +138,15 @@ function reset(loser)
 {
     ball.body.x = 300;
     ball.body.y = 300;
-    ball.body.velocity.setTo(200, 200); 
+    var direction = Math.random() - .5;
+    if (direction > 0)
+    {
+        ball.body.velocity.setTo(  200, 200); 
+    }else 
+    {
+        ball.body.velocity.setTo( - 200, 200); 
+    }
+    
     
     if(loser == 1){
         player2Score++;

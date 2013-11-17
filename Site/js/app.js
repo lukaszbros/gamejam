@@ -104,22 +104,29 @@ socket.on('player_connected', function(data){
 
 socket.on('player_move', function(data){
 	if (data.playerId == playerAId) {
-		if (data.move.b > 20) {
+		if (data.move.b > 50) {
+			playerAMove = 2;
+		} else if (data.move.b > 20) {
 			playerAMove = 1;
+		} else if (data.move.b < -40) {
+			playerAMove = -2;
 		} else if (data.move.b < -20) {
 			playerAMove = -1;
 		} else {
 			playerAMove = 0;
 		}		
 	} else {
-		if (data.move.b > 20) {
+		if (data.move.b > 50) {
+			playerBMove = 2;
+		} else if (data.move.b > 20) {
 			playerBMove = 1;
+		} else if (data.move.b < -40) {
+			playerBMove = -2;
 		} else if (data.move.b < -20) {
 			playerBMove = -1;
 		} else {
 			playerBMove = 0;
 		}
-		
 	}
-	console.log('playerA ' + playerAMove + ' - playerB ' + playerBMove);
+	//console.log('playerA ' + playerAMove + ' - playerB ' + playerBMove);
 })
