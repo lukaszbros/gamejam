@@ -8,23 +8,57 @@
 
     <title>Pong </title>
     <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
-
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <body style="line-height: 100%;">
+
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function() {
+
+        function PlayerAReady()
+        {
+            $("#waitForPlayerA").hide();
+            $("#playerAReady").show();
+        }
+
+        function PlayerBReady(){
+            $("#waitForPlayerB").hide();
+            $("#playerBReady").show();
+        }
+        $( "#qrcodeA" ).click(function() {
+            PlayerAReady();
+        });
+
+        $( "#qrcodeB" ).click(function() {
+            PlayerBReady();
+        });
+
+    });
+</script>
     <div class="container"  style="padding-top: 200px;">
         <div class="span2 offset2 text-center">
-            <img src="assets/img/QrcodePlayerA.png">
-            Player A
+            <div id="waitForPlayerA">
+                <img src="assets/img/QrcodePlayerA.png" id="qrcodeA">
+                Player A
+            </div>
+            <div id="playerAReady" style="display: none;">
+                <img src="assets/img/PlayerReady.png">
+                Player A ready
+            </div>
         </div>
         <div class="span3 text-center">
             Choose player
         </div>
         <div class="span2 text-center">
-            <img src="assets/img/QrcodePlayerB.png">
-            Player B
+            <div id="waitForPlayerB">
+                <img src="assets/img/QrcodePlayerB.png" id="qrcodeB">
+                Player B
+            </div>
+            <div id="playerBReady" style="display: none;">
+                <img src="assets/img/PlayerReady.png">
+                Player B ready
+            </div>
         </div>
     </div>
-
-
 </body>
-
 </html>
