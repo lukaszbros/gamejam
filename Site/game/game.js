@@ -2,6 +2,7 @@
 function preload() {
     game.load.image('ball', 'assets/ball.png');
     game.load.image('pong', 'assets/pong.png');
+    game.load.image('pong2', 'assets/pong2.png');
 }
 var game;
 
@@ -53,7 +54,7 @@ function create() {
     player1.body.collideWorldBounds = true;
     player1.body.bounce.setTo(1, 1);
     
-    player2 = players.create(800 - 20, 160, 'pong');
+    player2 = players.create(800 - 20, 160, 'pong2');
     player2.body.collideWorldBounds = true;
     player2.body.bounce.setTo(1, 1);
     
