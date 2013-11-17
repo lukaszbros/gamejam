@@ -64,20 +64,20 @@ socket.on('player_move', function(data){
 	if (data.playerId == playerAId) {
 		if (data.move.b > 20) {
 			playerAMove = 1;
-		} else if (data.move.b < 20) {
+		} else if (data.move.b < -20) {
 			playerAMove = -1;
 		} else {
 			playerAMove = 0;
-		}
-		console.log('playerA ' + playerAMove);
+		}		
 	} else {
 		if (data.move.b > 20) {
 			playerBMove = 1;
-		} else if (data.move.b < 20) {
+		} else if (data.move.b < -20) {
 			playerBMove = -1;
 		} else {
 			playerBMove = 0;
 		}
-		console.log('playerB ' + playerBMove);
+		
 	}
+	console.log('playerA ' + playerAMove + ' - playerB ' + playerBMove);
 })
